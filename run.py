@@ -3,6 +3,7 @@ os module for getting IP and PORT
 environment variables
 """
 import os
+import json
 from flask import Flask, render_template
 
 
@@ -22,7 +23,10 @@ def about():
     """
     About page view
     """
-    return render_template("about.html", page_title="About")
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", company=data)
 
 
 @app.route("/contact")
