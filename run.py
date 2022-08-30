@@ -22,7 +22,7 @@ def about():
     """
     About page view
     """
-    return render_template("about.html")
+    return render_template("about.html", page_title="About")
 
 
 @app.route("/contact")
@@ -30,7 +30,7 @@ def contact():
     """
     Contact Page view
     """
-    return render_template("contact.html")
+    return render_template("contact.html", page_title="Contact Us")
 
 
 @app.route("/careers")
@@ -38,7 +38,7 @@ def careers():
     """
     Careers Page view
     """
-    return render_template("careers.html")
+    return render_template("careers.html", page_title="Come Work With Us!")
 
 
 if __name__ == "__main__":
