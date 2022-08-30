@@ -11,32 +11,21 @@
     </p>
     <h2>Members</h2>
     <hr>
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h3>Thorin II Oakenshield</h3>
-            <p>
-                Thorin II "Oakenshield", eventually called King under the Mountain or Mountain King, was the son of Thráin II, the older brother of Frerin and Dís, the grandson of King Thrór and the uncle of Fíli and Kíli. Thorin was best known for his deeds as leader of a company that infiltrated the lost Kingdom under the Mountain to take it back from Smaug and for leading an alliance of Men, Dwarves, and Elves in the Battle of Five Armies.
-            </p>
-            <p>
-                Thorin II was born in TA 2746 to Dwarf prince Thráin II in the city of the Lonely Mountain. Early in his youth, he and the other Dwarves of the Lonely Mountain were forced to flee by the dragon Smaug in TA 2770. While in exile, he quickly grew to become a capable warrior. This was demonstrated when he participated in the Battle of Azanulbizar in TA 2799. He fought with one of the Dwarven armies beneath the East-gate of Moria. At some point in the fighting, his shield broke, and using an oaken tree branch found on the ground as a shield, he gained the epithet "Oakenshield," which would remain with him even in death.
-            </p>
+
+    {% for member in company %}
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.description }}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image image-reponsive">
+            </div>
         </div>
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/7/76/ThorinTDOMTextlessPoster.jpg" alt="Thorin Oakenshield">
-        </div>
-    </div>
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img src="https://static.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg" alt="Fili and Kili">
-        </div>
-        <div class="col-md-7">
-            <h3>Fíli &amp; Kíli</h3>
-            <p>
-                Fíli and Kíli were brothers, the youngest of the thirteen Dwarves who set out with Thorin Oakenshield's company, along with Gandalf and Bilbo Baggins, to reclaim the Lonely Mountain from the dragon Smaug.
-            </p>
-            <p>
-                Fíli and Kíli were nephews of Thorin, who was the elder brother of their mother Dís. They were also nephews of Frerin, grandsons of Thráin II, and great-grandsons of Thrór. Fíli's most distinguishing feature was his long nose, the longest of any of the Dwarves in Thorin's company.
-            </p>
-        </div>
-    </div>
+
+        <hr class="featurette-divider">
+
+    {% endfor %}
+            
 {% endblock %}
