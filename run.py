@@ -4,7 +4,7 @@ environment variables
 """
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -48,6 +48,10 @@ def contact():
     """
     Contact Page view
     """
+    if request.method == "POST":
+        print(request.form)
+        print(request.form.get("name"))
+        print(request.form["email"])
     return render_template("contact.html", page_title="Contact Us")
 
 
