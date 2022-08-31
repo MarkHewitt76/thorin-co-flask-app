@@ -1,13 +1,21 @@
 """
-os module for getting IP and PORT
-environment variables
+os module for handling IP, PORT and other environment variables.
+json library for handling json files.
+flask library: Flask and render_template for handling routes and views,
+request module for handling form data, flash function for flash messages.
 """
 import os
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
+"""
+gets the SECRET_KEY environment variable
+"""
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 @app.route("/")
@@ -49,9 +57,8 @@ def contact():
     Contact Page view
     """
     if request.method == "POST":
-        print(request.form)
-        print(request.form.get("name"))
-        print(request.form["email"])
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
     return render_template("contact.html", page_title="Contact Us")
 
 
