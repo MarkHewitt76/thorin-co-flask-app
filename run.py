@@ -2,7 +2,7 @@
 os module for handling IP, PORT and other environment variables.
 json library for handling json files.
 flask library: Flask and render_template for handling routes and views,
-request module for handling form data, flash function for flash messages.
+request module for handling form data, flash function for flashed messages.
 """
 import os
 import json
